@@ -24,6 +24,6 @@ $(document).ready(function(){
 				commentElement.replaceWith(comment);
 			   }	
 	};
-	inputDate = new Date(2019,6,13)
+	inputDate = new Date(2019,6,13);
 	fullActionTask(inputDate,taskDate);
 });
