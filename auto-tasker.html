@@ -1,20 +1,20 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script>
 $(document).ready(function() {
   let AutoTasker = {
     init(multipleDay) {
       let taskDate = new Date();
       let taskDay = taskDate.getDate();
-
       if (multipleDay) {
         const inputDate = new Date(2019,6,13);
-        this.fullActionTask(inputData, taskDate);
+        this.fullActionTask(inputDate, taskDate);
       } else {
         this.actionTask("", taskDate); // don't know why you'r passing ""
       }
     },
-
     actionTask(taskExecutionDate, taskDay) {
-		let userDate = taskExecutionDate.split("@");
+    	let userDate = taskExecutionDate.split("@");
 		for(i=0; i < userDate.length; i++){
 			if(userDate[i] === taskDay){
 				let commentElement = $('.comEle');
@@ -22,18 +22,24 @@ $(document).ready(function() {
 				commentElement.replaceWith(comment);
 		   }
 		}
-    },
+        console.log('performing actionTask');
 
-    fullActionTask(inputDate, taskDay) {
+    },
+    fullActionTask(inputDate, taskDate) {
 		if(inputDate <= taskDate){
+            console.log('performing full action task');
 		   let commentElement = $('.comEle');
 		   let comment = document.createComment(commentElement.get(0).outerHTML);
 		   commentElement.replaceWith(comment);
 	   }
     }
-
   };
   AutoTasker.init(true); // Either pass false or true
 });
 
 </script>
+
+<div class="comEle">
+    <p> hello, I am new </p>
+    <p> I am out </p>
+</div>
