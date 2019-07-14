@@ -1,0 +1,39 @@
+<script>
+$(document).ready(function() {
+  let AutoTasker = {
+    init(multipleDay) {
+      let taskDate = new Date();
+      let taskDay = taskDate.getDate();
+
+      if (multipleDay) {
+        const inputDate = new Date(2019,6,13);
+        this.fullActionTask(inputData, taskDate);
+      } else {
+        this.actionTask("", taskDate); // don't know why you'r passing ""
+      }
+    },
+
+    actionTask(taskExecutionDate, taskDay) {
+		let userDate = taskExecutionDate.split("@");
+		for(i=0; i < userDate.length; i++){
+			if(userDate[i] === taskDay){
+				let commentElement = $('.comEle');
+				let comment = document.createComment(commentElement.get(0).outerHTML);
+				commentElement.replaceWith(comment);
+		   }
+		}
+    },
+
+    fullActionTask(inputDate, taskDay) {
+		if(inputDate <= taskDate){
+		   let commentElement = $('.comEle');
+		   let comment = document.createComment(commentElement.get(0).outerHTML);
+		   commentElement.replaceWith(comment);
+	   }
+    }
+
+  };
+  AutoTasker.init(true); // Either pass false or true
+});
+
+</script>
