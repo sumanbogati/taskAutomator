@@ -3,10 +3,12 @@
 <script>
 $(document).ready(function() {
   let AutoTasker = {
-    init(multipleDay) {
+    multipleDay : false,
+    init(data) {
+      this.multipleDay = data.multipleDay;
       let taskDate = new Date();
       let taskDay = taskDate.getDate();
-      if (multipleDay) {
+      if (this.multipleDay) {
         const inputDate = new Date(2019,6,13);
         this.fullActionTask(inputDate, taskDate);
       } else {
@@ -34,7 +36,7 @@ $(document).ready(function() {
 	   }
     }
   };
-  AutoTasker.init(true); // Either pass false or true
+  AutoTasker.init({multipleDay:true}); // Either pass false or true
 });
 
 </script>
